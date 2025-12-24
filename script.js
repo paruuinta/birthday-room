@@ -53,41 +53,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ====== ИНТЕРАКТИВНЫЕ ОБЪЕКТЫ С ДВАЖДЫ ЗВУКОМ ======
-  hotspots.forEach(h => {
-    h.addEventListener('click', () => {
+ hotspots.forEach(h => {
+  h.addEventListener('click', () => {
 
-      if (typingInterval) {
+    // Останавливаем предыдущую печать
+    if (typingInterval) {
+      clearInterval(typingInterval);
+      typingInterval = null;
+    }
+
+    const id = h.dataset.id;
+    const text = texts[id];
+
+    if (!text) return;
+
+    textBox.classList.add('show');
+    textContent.textContent = '';
+
+    // Воспроизводим звук печатной машинки дважды
+    const typeSound1 = new Audio('sounds/type.mp3');
+    typeSound1.play();
+
+    setTimeout(() => {
+      const typeSound2 = new Audio('sounds/type.mp3');
+      typeSound2.play();
+    }, 300); // повтор через 0.3 секунды
+
+    // Печатаем текст по буквам
+    let i = 0;
+    typingInterval = setInterval(() => {
+      textContent.textContent += text[i];
+      i++;
+      if (i >= text.length) {
         clearInterval(typingInterval);
         typingInterval = null;
       }
-
-      const id = h.dataset.id;
-      const text = texts[id];
-
-      if (!text) return;
-
-      textBox.classList.add('show');
-      textContent.textContent = '';
-
-      // Воспроизводим звук дважды
-      typeSound.currentTime = 0;
-      typeSound.play();
-      setTimeout(() => {
-        typeSound.currentTime = 0;
-        typeSound.play();
-      }, 500); // через 0.5 секунды повтор
-
-      let i = 0;
-      typingInterval = setInterval(() => {
-        textContent.textContent += text[i];
-        i++;
-        if (i >= text.length) {
-          clearInterval(typingInterval);
-          typingInterval = null;
-        }
-      }, 30);
-    });
+    }, 30);
   });
+});
 
   // ====== КРЕСТИК И ФИНАЛ ======
   closeButton.addEventListener('click', () => {
