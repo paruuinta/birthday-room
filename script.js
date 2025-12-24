@@ -13,28 +13,29 @@ const texts = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ====== ЭЛЕМЕНТЫ ======
+
+  // ====== ИНТРО ======
   const introScreen = document.getElementById('intro-screen');
   const enterButton = document.getElementById('enter-room');
   const mainScene = document.getElementById('main-scene');
   const fadeOverlay = document.getElementById('fade');
   const transitionSound = document.getElementById('transition-sound');
-  const bgMusic = document.getElementById('background-music');
-  const textBox = document.querySelector('.text-box');
-  const textContent = document.getElementById('text-content');
   const closeButton = document.getElementById('close-button');
   const finalScreen = document.getElementById('final-screen');
+
+  const bgMusic = document.getElementById('background-music');
+  bgMusic.volume = 0.3;
+  bgMusic.loop = true;
+
+  const typeSound = new Audio('sounds/type.mp3');
   const finalSound = new Audio('sounds/door.mp3');
 
-  // включаем фоновую музыку сразу
-  if (bgMusic) {
-    bgMusic.volume = 0.3;
-    bgMusic.loop = true;
-    bgMusic.play();
-  }
-
-  // ====== Переход из интро в комнату ======
+  // Переход из интро в комнату + запуск музыки
   enterButton.addEventListener('click', () => {
+    // запускаем музыку после клика (Safari разрешает)
+    bgMusic.currentTime = 0;
+    bgMusic.play();
+
     fadeOverlay.classList.add('active');
     transitionSound.currentTime = 0;
     transitionSound.play();
@@ -50,14 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1200);
   });
 
-  // ====== Звук печати ======
-  const typeSound = new Audio('sounds/type.mp3');
-
-  // ====== Интерактивные объекты ======
+  // ======== Интерактивные объекты ========
   const hotspots = document.querySelectorAll('.hotspot');
+  const textBox = document.querySelector('.text-box');
+  const textContent = document.getElementById('text-content');
+
   hotspots.forEach(h => {
     h.addEventListener('click', () => {
-      // останавливаем предыдущую печать
+      // остановка предыдущей печати
       if (typingInterval) {
         clearInterval(typingInterval);
         typingInterval = null;
@@ -70,13 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
       textBox.classList.add('show');
       textContent.textContent = '';
 
-      // проигрываем звук дважды подряд
+      // Дважды проигрываем звук
       typeSound.currentTime = 0;
       typeSound.play();
-      setTimeout(() => {
+      typeSound.addEventListener('ended', function playSecond() {
+        typeSound.removeEventListener('ended', playSecond);
         typeSound.currentTime = 0;
         typeSound.play();
-      }, 400); // 400мс между звуками
+      });
 
       let i = 0;
       typingInterval = setInterval(() => {
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ====== Крестик для финала ======
+  // ======== Крестик для финала ========
   closeButton.addEventListener('click', () => {
     fadeOverlay.classList.add('active');
     finalSound.currentTime = 0;
@@ -109,4 +111,5 @@ document.addEventListener('DOMContentLoaded', () => {
       fadeOverlay.classList.remove('active');
     }, 1200);
   });
+
 });
