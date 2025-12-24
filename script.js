@@ -22,6 +22,10 @@ const transitionSound = document.getElementById('transition-sound');
 
 // Переход из интро в комнату
 enterButton.addEventListener('click', () => {
+  const bgMusic = document.getElementById('background-music');
+  bgMusic.volume = 0.3;
+  bgMusic.play();
+  
   fadeOverlay.classList.add('active');
   transitionSound.currentTime = 0;
   transitionSound.play();
@@ -41,7 +45,6 @@ enterButton.addEventListener('click', () => {
 const hotspots = document.querySelectorAll('.hotspot');
 const textBox = document.querySelector('.text-box');
 const textContent = document.getElementById('text-content');
-const typeSound = new Audio('sounds/type.mp3');
 
 hotspots.forEach(h => {
   h.addEventListener('click', () => {
