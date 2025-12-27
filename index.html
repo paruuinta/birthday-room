@@ -2,100 +2,105 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
   <title>С Днём рождения Ваня!!!</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ====== ИНТРО ====== -->
-<div id="intro-screen" class="scene active">
-  <img src="images/intro-text.png" class="intro-text" alt="">
-  <img src="images/intro-bee.png" class="bee" alt="">
-  <button id="enter-room" class="img-button">
-    <img src="images/intro-click.png" alt="Войти">
-  </button>
-</div>
 
-<!-- ====== КОМНАТА ====== -->
-<div id="main-scene" class="scene">
-  <img src="images/room_bg.png" class="scene-bg" alt="">
+  <!-- ====== ИНТРО ====== -->
+  <div id="intro-screen" class="scene active">
+    <img src="images/intro-text.png" class="intro-text" alt="">
+    <img src="images/intro-bee.png" class="bee" alt="">
+    <button id="enter-room" class="img-button">
+      <img src="images/intro-click.png" alt="Войти">
+    </button>
+  </div>
 
-   <!-- интерактивные объекты -->
-  <div class="hotspot" data-id="balloons" style="top:50px; left:1380px; width:273px; height:564px;">
-    <img src="images/balloons.png" alt="">
-  </div>
-  <div class="hotspot" data-id="fly" style="top:50px; left:200px; width:23px; height:21px;">
-    <img src="images/fly.png" alt="">
-  </div>
-  <div class="hotspot" data-id="macbook" style="top:460px; left:210px; width:143px; height:125px;">
-    <img src="images/macbook.png" alt="">
-  </div>
-  <div class="hotspot" data-id="note" style="top:790px; left:390px; width:89px; height:101px;">
-    <img src="images/note.png" alt="">
-  </div>
-  <div class="hotspot" data-id="piano" style="top:480px; left:1270px; width:82px; height:24px;">
-    <img src="images/piano.png" alt="">
-  </div>
-  <div class="hotspot" data-id="socrates" style="top:650px; left:1350px; width:177px; height:287px;">
-    <img src="images/socrates.png" alt="">
-  </div>
-  <div class="hotspot" data-id="sun" style="top:260px; left:812px; width:97px; height:120px;">
-    <img src="images/sun.png" alt="">
-  </div>
-  <div class="hotspot" data-id="tea" style="top:550px; left:190px; width:49px; height:49px;">
-    <img src="images/tea.png" alt="">
-  </div>
-  <div class="hotspot" data-id="trash" style="top:590px; left:930px; width:160px; height:233px;">
-    <img src="images/trash.png" alt="">
-  </div> 
-</div>
+  <!-- ====== КОМНАТА ====== -->
+  <div id="main-scene" class="scene">
 
-<!-- крестик для финала -->
-<button id="close-button">×</button>
+    <div class="hotspot" data-id="balloons" style="top:50px; left:1380px; width:273px; height:564px;">
+      <img src="images/balloons.png" alt="">
+    </div>
+    <div class="hotspot" data-id="fly" style="top:50px; left:200px; width:23px; height:21px;">
+      <img src="images/fly.png" alt="">
+    </div>
+    <div class="hotspot" data-id="macbook" style="top:460px; left:210px; width:143px; height:125px;">
+      <img src="images/macbook.png" alt="">
+    </div>
+    <div class="hotspot" data-id="note" style="top:790px; left:390px; width:89px; height:101px;">
+      <img src="images/note.png" alt="">
+    </div>
+    <div class="hotspot" data-id="piano" style="top:480px; left:1270px; width:82px; height:24px;">
+      <img src="images/piano.png" alt="">
+    </div>
+    <div class="hotspot" data-id="socrates" style="top:650px; left:1350px; width:177px; height:287px;">
+      <img src="images/socrates.png" alt="">
+    </div>
+    <div class="hotspot" data-id="sun" style="top:260px; left:812px; width:97px; height:120px;">
+      <img src="images/sun.png" alt="">
+    </div>
+    <div class="hotspot" data-id="tea" style="top:550px; left:190px; width:49px; height:49px;">
+      <img src="images/tea.png" alt="">
+    </div>
+    <div class="hotspot" data-id="trash" style="top:590px; left:930px; width:160px; height:233px;">
+      <img src="images/trash.png" alt="">
+    </div>
 
-<!-- ====== ТЕКСТОВАЯ ПАНЕЛЬ ====== -->
-<div class="text-box">
-  <p id="text-content"></p>
-</div>
+  </div>
 
-<!-- ====== ФИНАЛ ====== -->
-<div id="final-screen" class="scene">
-  <img src="images/fin-characters.png" class="final-chars" alt="">
-  <div class="final-bubble">
-   <p> С днём рождения, мой любимый Ванечка ❤️
-   <br><br>
-   Всегда долго думаю, что же такого пожелать. Поняла, что больше всего мне хочется, чтобы тебе было спокойно.
-   Спокойно внутри себя.
-   Спокойно в мире. 
-   Спокойно рядом со мной.
-   <br><br>
-   Я очень люблю твою честность, твою глубину и то, как ты идёшь вперёд, даже когда трудно.
-   Люблю твою силу, и люблю когда ты можешь говорить про свою уязвимость.
-   Люблю, как ты думаешь, как чувствуешь, как говоришь.
-   Единственное, что не нравится, так это то что ты не высыпаешься, поэтому желаю крепкого, глубокого, здорового, богатырского сна.
-   <br><br>
-   Если вдруг ты в себе засомневаешься, то я буду рядом и буду напоминать
-   какой ты хороший крутой клёвый умный сильный смелый сексуальный богатый щедрый добрый мужественный талантливый настоящий вообще очень нереальный мужчина.
-   <br><br>
-   Ты мой дом, самый близкий человек.
-   Рядом с тобой супер офигенно.
-   <br><br>
-   Сделала эту комнату, потому что не всегда умею говорить словами.
-   Но мне нравится замечать твои привычки, твои мелочи, твой юмор, твоё пространство.
-   Мне хотелось собрать здесь кусочки того, как я тебя вижу и очень люблю.
-   <br><br>
-   ЛЮ!!! ❤️❤️❤️
-   <br><br>
-   Я счастлива идти рядом с тобой.
-   И пусть наши дети не будут бояться грома!
+  <!-- крестик -->
+  <button id="close-button">×</button>
+
+  <!-- текст -->
+  <div class="text-box">
+    <p id="text-content"></p>
+  </div>
+
+  <!-- ====== ФИНАЛ ====== -->
+  <div id="final-screen" class="scene">
+    <img src="images/fin-characters.png" class="final-chars" alt="">
+    <div class="final-bubble">
+    <p>
+    С днём рождения, мой любимый Ванечка ❤️
+    <br><br>
+    Всегда долго думаю, что же такого пожелать. Поняла, что больше всего мне хочется, чтобы тебе было спокойно.
+    Спокойно внутри себя.
+    Спокойно в мире.
+    Спокойно рядом со мной.
+    <br><br>
+    Я очень люблю твою честность, твою глубину и то, как ты идёшь вперёд, даже когда трудно.
+    Люблю твою силу, и люблю когда ты можешь говорить про свою уязвимость.
+    Люблю, как ты думаешь, как чувствуешь, как говоришь.
+    Единственное, что не нравится, так это то что ты не высыпаешься, поэтому желаю крепкого, глубокого, здорового, богатырского сна.
+    <br><br>
+    Если вдруг ты в себе засомневаешься, то я буду рядом и буду напоминать
+    какой ты хороший крутой клёвый умный сильный смелый сексуальный богатый щедрый добрый мужественный талантливый настоящий вообще очень нереальный мужчина.
+    <br><br>
+    Ты мой дом, самый близкий человек.
+    Рядом с тобой супер офигенно.
+    <br><br>
+    Сделала эту комнату, потому что не всегда умею говорить словами.
+    Но мне нравится замечать твои привычки, твои мелочи, твой юмор, твоё пространство.
+    Мне хотелось собрать здесь кусочки того, как я тебя вижу и очень люблю.
+    <br><br>
+    ЛЮ!!! ❤️❤️❤️
+    <br><br>
+    Я счастлива идти рядом с тобой.
+    И пусть наши дети не будут бояться грома!
+    </p>
    </div>
-</div>
+  </div>
 
-<!-- затемнение -->
-<div id="fade"></div>
+  <!-- затемнение -->
+  <div id="fade"></div>
+
+</div>
 
 <!-- аудио -->
-<audio id="background-music" src="sounds/bg-song.mp3" loop autoplay></audio>
+<audio id="background-music" src="sounds/bg-song.mp3" loop></audio>
 <audio id="transition-sound" src="sounds/door.mp3"></audio>
 <audio id="type-sound" src="sounds/type.mp3"></audio>
 

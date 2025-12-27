@@ -113,3 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+function updateScale() {
+  const scaleX = window.innerWidth / 1600;
+  const scaleY = window.innerHeight / 900;
+
+  const scale = Math.min(scaleX, scaleY, 0,7); // ⬅️ КЛЮЧЕВО
+
+  document.documentElement.style.setProperty('--scale', scale);
+}
+
+updateScale();
+window.addEventListener('resize', updateScale);
