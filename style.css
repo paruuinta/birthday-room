@@ -149,3 +149,21 @@ html, body {
   pointer-events: none;
 }
 #fade.active { opacity: 1; }
+
+/* ====== МЯГКОЕ ПОКАЧИВАНИЕ ИНТЕРАКТИВНЫХ ОБЪЕКТОВ ====== */
+.hotspot img {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* небольшая разница фаз, чтобы не синхронно */
+.hotspot:nth-child(even) img {
+  animation-duration: 3.6s;
+}
+.hotspot:nth-child(odd) img {
+  animation-duration: 2.8s;
+}
+
+/* ====== ФИНАЛЬНЫЕ ПЕРСОНАЖИ ТОЖЕ ЖИВЫЕ ====== */
+.final-chars {
+  animation: float 3s ease-in-out infinite;
+}
